@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Textures\Just a Box.png</Source>
+      <Name>Textures\Just a Box</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Box.xnb</Output>
+      <Time>2016-04-20T02:04:08+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Just a Floor.png</Source>
+      <Name>Textures\Just a Floor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Floor.xnb</Output>
+      <Time>2016-04-20T02:11:26+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Just a Small Floor.png</Source>
+      <Name>Textures\Just a Small Floor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Small Floor.xnb</Output>
+      <Time>2016-04-24T03:53:52+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Floor1.png</Source>
+      <Name>Textures\Floor1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Floor1.xnb</Output>
+      <Time>2016-04-24T03:53:58+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Floor2.png</Source>
+      <Name>Textures\Floor2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Floor2.xnb</Output>
+      <Time>2016-04-24T03:53:58+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Just a WOMD.png</Source>
+      <Name>Textures\Just a WOMD</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a WOMD.xnb</Output>
+      <Time>2016-04-24T04:26:28+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Calibri.spritefont</Source>
+      <Name>Fonts\Calibri</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Fonts\Calibri.xnb</Output>
+      <Time>2016-05-24T17:51:15+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Just a Projectile.png</Source>
+      <Name>Textures\Just a Projectile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Projectile.xnb</Output>
+      <Time>2016-05-25T16:12:56.1413086+01:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New ProgramContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New ProgramContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2016-01-19T05:56:52.5083774+00:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

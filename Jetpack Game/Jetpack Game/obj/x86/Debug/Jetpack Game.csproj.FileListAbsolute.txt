@@ -1,0 +1,15 @@
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a Box.xnb
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a Floor.xnb
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a Small Floor.xnb
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Floor1.xnb
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Floor2.xnb
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a WOMD.xnb
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a Projectile.xnb
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Flamey Thingy.xnb
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Fonts\Calibri.xnb
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\New Program.exe
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\New Program.pdb
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\obj\x86\Debug\Jetpack Game.csprojResolveAssemblyReference.cache
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\obj\x86\Debug\New Program.exe
+D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\obj\x86\Debug\New Program.pdb
