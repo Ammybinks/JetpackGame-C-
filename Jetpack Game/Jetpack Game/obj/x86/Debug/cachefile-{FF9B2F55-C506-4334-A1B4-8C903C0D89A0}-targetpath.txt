@@ -5,5 +5,4 @@ Content\Textures\Floor1.xnb
 Content\Textures\Floor2.xnb
 Content\Textures\Just a WOMD.xnb
 Content\Textures\Just a Projectile.xnb
-Content\Textures\Flamey Thingy.xnb
 Content\Fonts\Calibri.xnb

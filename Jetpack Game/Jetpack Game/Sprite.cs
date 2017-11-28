@@ -1,25 +1,58 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////////////
+// Copyright 2013, CompuScholar, Inc.
+//
+// This source code is for use by the students and teachers who 
+// have purchased the corresponding TeenCoder or KidCoder product.
+// It may not be transmitted to other parties for any reason
+// without the written consent of CompuScholar, Inc.
+// This source is provided as-is for educational purposes only.
+// CompuScholar, Inc. makes no warranty and assumes
+// no liability regarding the functionality of this program.
+//
+////////////////////////////////////////////////////////////////
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Net;
+using Microsoft.Xna.Framework.Storage;
 
 namespace SpriteLibrary
 {
-    public class SpriteBase
+    public class Sprite
     {
         // upper-left coordinate of the sprite image on the screen
-        public Vector2 UpperLeft = new Vector2(0, 0);
+        public Vector2 UpperLeft;
 
         // X and Y stretching factors to adjust the final sprite dimensions
         public Vector2 Scale = new Vector2(1.0f, 1.0f);
 
         // this member holds the current Texture for the sprite
-        protected Texture2D spriteTexture;
+        private Texture2D spriteTexture;
 
-        // color array used internally for collision detection
-        protected Color[,] textureColors;
+        // if true, then sprite is visible and can move and interact (collide) with others
+        public bool IsAlive = true;
 
-        // This internal member represents the current source rectangle in the animation strip
-        protected Rectangle imageRect;
+        // fastest absolute speed the sprite will move
+        public double MaxSpeed = 10;
+
+        // current sprite velocity (X and Y speed components)
+        private Vector2 velocity;
+
+        // current sprite movement direction, in degrees
+        // (even if Velocity is 0,0 we  still want to "point" in a direction)
+        private double directionAngle = 0;
+
+        // Time-To-Live TimeSpan indicates remaining time sprite will last alive (-1 = disabled)
+        public int TTL = -1;
 
         // current value, in degrees, of the rotation of the sprite
         public double RotationAngle = 0;
@@ -30,149 +63,9 @@ namespace SpriteLibrary
         // indication of which depth to use when drawing sprite (for layering purposes)
         public float LayerDepth = 0;
 
-        // This internal member tracks the current frame numerically, regardless of current line
-        protected int totalFrame = 0;
+        // color array used internally for collision detection
+        private Color[,] textureColors;
 
-        // This internal member tracks the number of frames and lines in the animation strip
-        protected int numFrames = 1;
-        protected int numLines = 1;
-
-        // This internal member tracks the number of frames in any given line
-        protected int lineFrames;
-
-        // These internal members specify the width and height of a single frame in the animation strip
-        // (Note:  overall strip dimensions should be an even multiple of this value!)
-        public int frameWidth;
-        public int frameHeight;
-
-        // This internal member shows the current animation frame on the current line (should be 0 -> numFrames-1)
-        protected int currentFrame = 0;
-
-        // This internal member shows the current animation line
-        protected int currentLine = 0;
-
-        public int getCurrentFrame()
-        {
-            return currentFrame;
-        }
-
-        public int getTotalFrame()
-        {
-            return totalFrame;
-        }
-        
-        // Sets the current frame the sprite is displaying
-        // (NOTE: Input is taken in the form of the line, and frame along that line (Upper limit for frame is TotalFrames / TotalLines)
-        public void setCurrentFrame(int frame, int line)
-        {
-            if (frame > lineFrames - 1 || frame < 0)  // safety check!
-            {
-                frame = 0;
-            }
-
-            if (line > numLines - 1 || line < 0)
-            {
-                line = 0;
-            }
-
-            currentFrame = frame;
-
-            currentLine = line;
-
-            totalFrame = frame + (lineFrames * line);
-
-
-            imageRect = new Rectangle(frameWidth * frame, frameHeight * line, frameWidth, frameHeight);
-        }
-
-        // This method will load the Texture based on the image name
-        public void SetTexture(Texture2D texture)
-        {
-            SetTexture(texture, 1);
-        }
-
-        // This method will load the Texture based on the image name and number of frames
-        public void SetTexture(Texture2D texture, int frames)
-        {
-            SetTexture(texture, frames, 1);
-        }
-
-        // This method will load the Texture based on the image name and number of frames on each line and lines total
-        public void SetTexture(Texture2D texture, int frames, int lines)
-        {
-            lineFrames = frames;
-            numLines = lines;
-
-            numFrames = frames * lines;
-
-            spriteTexture = texture;
-
-            frameWidth = spriteTexture.Width / lineFrames;   // does not include effects of scaling!
-            frameHeight = spriteTexture.Height / numLines;
-
-            // does not include effects of scaling, which may change after SetTexture is finished!
-            imageRect = new Rectangle(0, 0, frameWidth, frameHeight);
-
-        }
-
-        // This method will draw the sprite using the current position, rotation, scale, and layer depth
-        public virtual void Draw(SpriteBatch theSpriteBatch)
-        {
-            float radians = MathHelper.ToRadians((float)RotationAngle);
-
-            theSpriteBatch.Draw(spriteTexture, UpperLeft + Origin, imageRect, Color.White,
-                                -radians, Origin / Scale, Scale, SpriteEffects.None, LayerDepth);
-        }
-
-        // This method will draw the sprite using the current position, rotation, scale, and layer depth
-        public virtual void Draw(SpriteBatch theSpriteBatch, Vector2 cameraUpperLeft)
-        {
-            UpperLeft -= cameraUpperLeft;
-            Draw(theSpriteBatch);
-            UpperLeft += cameraUpperLeft;
-        }
-
-        // calculate final sprite width, accounting for scale and assuming zero rotation
-        public int GetWidth()
-        {
-            return (int)(frameWidth * Scale.X);
-        }
-
-        // calculate final sprite height, accounting for scale and assuming zero rotation
-        public int GetHeight()
-        {
-            return (int)(frameHeight * Scale.Y);
-        }
-
-        // calculate current center offset from the UpperLeft, accounting for scale and assuming zero rotation
-        public Vector2 GetCenter()
-        {
-            return new Vector2(GetWidth() / 2, GetHeight() / 2);
-        }
-
-    }
-
-    public class Sprite : SpriteBase
-    {
-        // if true, then sprite is visible and can move and interact (collide) with others
-        public bool IsAlive = true;
-
-        // fastest absolute speed the sprite will move
-        public double MaxSpeed = 10;
-
-        // current sprite velocity (X and Y speed components)
-        private Vector2 velocity;
-        private Vector2 tempVelocity;
-
-        public bool tempAccelerating;
-
-        // current sprite movement direction, in degrees
-        // (even if Velocity is 0,0 we  still want to "point" in a direction)
-        private double directionAngle = 0;
-
-        // Time-To-Live TimeSpan indicates remaining time sprite will last alive (-1 = disabled)
-        public int TTL = -1;
-        
         // the desired number of milliseconds between animation frame changes
         // if zero (default), animation will advae onnc each call to animate().
         public int AnimationInterval = 0;
@@ -194,34 +87,95 @@ namespace SpriteLibrary
         // the short animation sequence is complete.
         private int animationShortFinalFrame = 0;
         
+        // This internal member tracks the number of frames in the animation strip
+        private int numFrames = 1;
+
+        // This internal member represents the current source rectangle in the animation strip
+        private Rectangle imageRect;
+
+        // This internal member specifies the width of a single frame in the animation strip
+        // (Note:  overall strip width should be an even multiple of this value!)
+        private int frameWidth;
+
+        // This internal member shows the current animation frame (should be 0 -> numFrames-1)
+        private int currentFrame = 0;
+
         public int lifeSpan = 0;
 
         public float windResistance = 0.2f;
 
         public float gravity = 0.5f;
 
-        //Creates a colour matrix to be used for collision detection
-        public void SetCollisions()
+        public int getCurrentFrame()
         {
-            SetCollisions(spriteTexture);
+            return currentFrame;
         }
 
-        //Creates a colour matrix to be used for collision detection
-        public void SetCollisions(Texture2D texture)
+        public void setCurrentFrame(int frame)
         {
+            if (frame > numFrames - 1)  // safety check!
+            {
+                currentFrame = 0;
+                imageRect = new Rectangle(0, 0, frameWidth, spriteTexture.Height);
+            }
+            else
+            {
+                currentFrame = frame;
+                imageRect = new Rectangle(frameWidth * frame, 0, frameWidth, spriteTexture.Height);
+            }
+        }
+
+        // This method will load the Texture based on the image name
+        public void SetTexture(Texture2D texture)
+        {
+            SetTexture(texture, 1);
+        }
+
+
+        // This method will load the Texture based on the image name and number of frames
+        public void SetTexture(Texture2D texture, int frames)
+        {
+            numFrames = frames;
+
+            spriteTexture = texture;
+            int width = spriteTexture.Width;
+            int height = spriteTexture.Height;
+
+            frameWidth = width / numFrames;   // does not include effects of scaling!
+
+            // does not include effects of scaling, which may change after SetTexture is finished!
+            imageRect = new Rectangle(0, 0, frameWidth, height);
+
             // create a color matrix that we'll use later for collision detection
             // contains colors for the entire image (including any animation strip)
-            Color[] colorData = new Color[texture.Width * texture.Height];
-            texture.GetData(colorData);
+            Color[] colorData = new Color[width * height];
+            spriteTexture.GetData(colorData);
 
-            textureColors = new Color[texture.Width, texture.Height];
-            for (int x = 0; x < texture.Width; x++)
+            textureColors = new Color[width, height];
+            for (int x = 0; x < width; x++)
             {
-                for (int y = 0; y < texture.Height; y++)
+                for (int y = 0; y < height; y++)
                 {
-                    textureColors[x, y] = colorData[x + y * texture.Width];
+                    textureColors[x, y] = colorData[x + y * width];
                 }
             }
+        }
+
+        // This method will draw the sprite using the current position, rotation, scale, and layer depth
+        public virtual void Draw(SpriteBatch theSpriteBatch)
+        {
+            float radians = MathHelper.ToRadians((float)RotationAngle);
+            if (IsAlive)
+                theSpriteBatch.Draw(spriteTexture, UpperLeft + Origin, imageRect, Color.White,
+                                    -radians, Origin / Scale, Scale, SpriteEffects.None, LayerDepth);
+        }
+
+        // This method will draw the sprite using the current position, rotation, scale, and layer depth
+        public virtual void Draw(SpriteBatch theSpriteBatch, Vector2 cameraUpperLeft)
+        {
+            UpperLeft -= cameraUpperLeft;
+            Draw(theSpriteBatch);
+            UpperLeft += cameraUpperLeft;
         }
 
         private Matrix getTransformMatrix()
@@ -230,7 +184,7 @@ namespace SpriteLibrary
             // http://www.riemers.net/eng/Tutorials/XNA/Csharp/Series2D/Coll_Detection_Matrices.php
             return 
                 Matrix.CreateTranslation(-Origin.X / Scale.X, -Origin.Y / Scale.Y, 0) *
-                Matrix.CreateRotationZ(-MathHelper.ToRadians((float)RotationAngle)) *
+                Matrix.CreateRotationZ(-MathHelper.ToRadians((float)this.RotationAngle)) *
                 Matrix.CreateScale(Scale.X, Scale.Y, 1.0f) *
                 Matrix.CreateTranslation(UpperLeft.X + (float)Origin.X, UpperLeft.Y + (float)Origin.Y, 0);
         }
@@ -279,15 +233,28 @@ namespace SpriteLibrary
             //    theSpriteBatch.Draw(borderTexture, new Rectangle((int)pos4.X, (int)pos4.Y, 1, 1), null, Color.Yellow, 0, new Vector2(0, 0), SpriteEffects.None, 0);
             //}
         }
-        
+
+        // calculate final sprite width, accounting for scale and assuming zero rotation
+        public int GetWidth()
+        {
+            return (int)((float)spriteTexture.Width * Scale.X / (float)numFrames);
+        }
+
+        // calculate final sprite height, accounting for scale and assuming zero rotation
+        public int GetHeight()
+        {
+            return (int)((float)spriteTexture.Height * Scale.Y);
+        }
+
+        // calculate current center offset from the UpperLeft, accounting for scale and assuming zero rotation
+        public Vector2 GetCenter()
+        {
+            return new Vector2(GetWidth() / 2, GetHeight() / 2);
+        }
+
         public Vector2 GetVelocity()
         {
             return velocity;
-        }
-
-        public Vector2 GetTempVelocity()
-        {
-            return tempVelocity;
         }
 
         // Set the velocity based on the specified absolute speed and direction angle
@@ -316,6 +283,7 @@ namespace SpriteLibrary
             Accelerate(VX, VY);
             directionAngle = angle; // just in case speed is zero, we still want to update the direction!
         }
+
         public double AccelerateX(double speed, double angle)
         {
             directionAngle = angle;
@@ -329,6 +297,7 @@ namespace SpriteLibrary
 
             return (VX);
         }
+
         public double AccelerateY(double speed, double angle)
         {
             directionAngle = angle;
@@ -338,45 +307,6 @@ namespace SpriteLibrary
             double VY = -speed * Math.Sin(radians); // -1 corrects for computer's "up"
 
             Accelerate(0, VY);
-            directionAngle = angle; // just in case speed is zero, we still want to update the direction!
-
-            return (VY);
-        }
-
-        public void TempAccelerateDirection(double speed, double angle)
-        {
-            directionAngle = angle;
-            double radians = MathHelper.ToRadians((float)directionAngle);   // convert current sprite angle to radians
-
-            // calculate the X and Y velocity components based on the current angle and input speed
-            double VX = speed * Math.Cos(radians);
-            double VY = -speed * Math.Sin(radians); // -1 corrects for computer's "up"
-
-            TempAccelerate(VX, VY);
-            directionAngle = angle; // just in case speed is zero, we still want to update the direction!
-        }
-        public double TempAccelerateX(double speed, double angle)
-        {
-            directionAngle = angle;
-            double radians = MathHelper.ToRadians((float)directionAngle);   // convert current sprite angle to radians
-
-            // calculate the X and Y velocity components based on the current angle and input speed
-            double VX = speed * Math.Cos(radians);
-
-            TempAccelerate(VX, 0);
-            directionAngle = angle; // just in case speed is zero, we still want to update the direction!
-
-            return (VX);
-        }
-        public double TempAccelerateY(double speed, double angle)
-        {
-            directionAngle = angle;
-            double radians = MathHelper.ToRadians((float)directionAngle);   // convert current sprite angle to radians
-
-            // calculate the X and Y velocity components based on the current angle and input speed
-            double VY = -speed * Math.Sin(radians); // -1 corrects for computer's "up"
-
-            TempAccelerate(0, VY);
             directionAngle = angle; // just in case speed is zero, we still want to update the direction!
 
             return (VY);
@@ -458,44 +388,6 @@ namespace SpriteLibrary
             directionAngle = CalculateDirectionAngle(velocity);  // update new directionAngle from velocity
         }
 
-        public void SetTempVelocity(double velocityX, double velocityY)
-        {
-            tempVelocity.X = (float)velocityX; //update the X speed component
-            tempVelocity.Y = (float)velocityY; //update the Y speed component
-
-            double newXSpeed = tempVelocity.X;
-            if (newXSpeed < 0)
-            {
-                newXSpeed *= -1;
-            }
-
-            double newYSpeed = tempVelocity.Y;
-            if (newYSpeed < 0)
-            {
-                newYSpeed *= -1;
-            }
-
-            //// calculate overall speed using Pythagorean's theorem:
-            //// s*s = x*x + y*y, or s = sqrt(x*x + y*y)
-
-            //double newSpeed = Math.Sqrt(velocityX * velocityX + velocityY * velocityY);
-
-            // make sure we don't get going too fast.  
-            if (newXSpeed > MaxSpeed) //if new speed exceeds maximum
-            {
-                double reductionFactor = MaxSpeed / newXSpeed;
-
-                tempVelocity.X *= (float)reductionFactor;    // reduce X component
-            }
-            if (newYSpeed > MaxSpeed) //if new speed exceeds maximum
-            {
-                double reductionFactor = MaxSpeed / newYSpeed;
-
-                tempVelocity.Y *= (float)reductionFactor;    // reduce X component
-            }
-
-            directionAngle = CalculateDirectionAngle(velocity);  // update new directionAngle from velocity
-        }
         // this function will move the sprite according to it's current Velocity
         public bool Move()
         {
@@ -505,22 +397,11 @@ namespace SpriteLibrary
             // create and calculate the new position based on current upper-left coordinate and velocity
             Vector2 newPosition;
 
-            if (tempAccelerating)
-            {
-                newPosition.X = UpperLeft.X + tempVelocity.X;
-                newPosition.Y = UpperLeft.Y + tempVelocity.Y;
+            newPosition.X = UpperLeft.X + velocity.X;
+            newPosition.Y = UpperLeft.Y + velocity.Y;
 
-                // update the sprite's current UpperLeft coordinates with the final position
-                UpperLeft = newPosition;
-            }
-            else
-            {
-                newPosition.X = UpperLeft.X + velocity.X;
-                newPosition.Y = UpperLeft.Y + velocity.Y;
-
-                // update the sprite's current UpperLeft coordinates with the final position
-                UpperLeft = newPosition;
-            }
+            // update the sprite's current UpperLeft coordinates with the final position
+            UpperLeft = newPosition;
 
             return true;
         }
@@ -631,29 +512,6 @@ namespace SpriteLibrary
 
             // update the speed, ensuring it does not exceed the maximum
             SetVelocity(speedX, speedY);
-        }
-
-        public void TempAccelerate(double acceleration)
-        {
-            double radians = MathHelper.ToRadians((float)directionAngle);   // convert current sprite angle to radians
-
-            // calculate acceleration components
-            double AX = acceleration * Math.Cos(radians);
-            double AY = acceleration * Math.Sin(radians);
-
-            // negative AY to account for computer's "up"
-            TempAccelerate(AX, -AY);  // now accelerate based on individual X and Y components
-        }
-
-        // accelerate the sprite (adjust its velocity) by the specified X and Y components
-        public void TempAccelerate(double AX, double AY)
-        {
-            // calculate new X and Y velocity components
-            double speedX = tempVelocity.X + AX;
-            double speedY = tempVelocity.Y + AY;
-
-            // update the speed, ensuring it does not exceed the maximum
-            SetTempVelocity(speedX, speedY);
         }
 
         public void Reflect(Vector2 slope)
@@ -887,11 +745,5 @@ namespace SpriteLibrary
             lastAnimationTime = (int)gameTime.TotalGameTime.TotalMilliseconds;
         }
 
-        public void Cull()
-        {
-            IsAlive = false;
-            //Dispose();
-            //GC.SuppressFinalize(this);
-        }
     }
 }

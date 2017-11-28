@@ -1,2 +1,2 @@
 C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New ProgramContent\obj\x86\Debug\New ProgramContent.contentprojResolveAssemblyReference.cache
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New ProgramContent\obj\x86\Debug\New ProgramContent.contentprojResolveAssemblyReference.cache
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New ProgramContent\obj\x86\Debug\New ProgramContent.contentprojResolveAssemblyReference.cache

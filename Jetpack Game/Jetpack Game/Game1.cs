@@ -1,8 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 using SpriteLibrary;
 using CameraLibrary;
@@ -12,18 +17,15 @@ namespace New_Program
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Game
+    public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
-        Random rand = new Random();
 
         LinkedList<Sprite> activeSprites = new LinkedList<Sprite>();
         LinkedList<Sprite> activeProjectiles = new LinkedList<Sprite>();
         LinkedList<Sprite> floors = new LinkedList<Sprite>();
         LinkedList<Sprite> walls = new LinkedList<Sprite>();
-        LinkedList<Sprite> temp = new LinkedList<Sprite>();
 
         KeyboardState currentKeyState;
         KeyboardState oldKeyState;
@@ -65,8 +67,6 @@ namespace New_Program
 
         Camera camera;
 
-        int projectileCount = 0;
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -100,13 +100,13 @@ namespace New_Program
             graphics.PreferredBackBufferHeight = (int)screenSize.Y;
             graphics.ApplyChanges();
 
-            Calibri = Content.Load<SpriteFont>("Fonts\\Calibri");
-            playerTexture = Content.Load<Texture2D>("Textures\\Just a Box");
-            floorTexture = Content.Load<Texture2D>("Textures\\Just a Floor");
-            smallFloorTexture = Content.Load<Texture2D>("Textures\\Just a Small Floor");
-            floor1Texture = Content.Load<Texture2D>("Textures\\Floor1");
-            floor2Texture = Content.Load<Texture2D>("Textures\\Floor2");
-            projectileTexture = Content.Load<Texture2D>("Textures\\Flamey Thingy");
+            Calibri = this.Content.Load<SpriteFont>("Fonts\\Calibri");
+            playerTexture = this.Content.Load<Texture2D>("Textures\\Just a Box");
+            floorTexture = this.Content.Load<Texture2D>("Textures\\Just a Floor");
+            smallFloorTexture = this.Content.Load<Texture2D>("Textures\\Just a Small Floor");
+            floor1Texture = this.Content.Load<Texture2D>("Textures\\Floor1");
+            floor2Texture = this.Content.Load<Texture2D>("Textures\\Floor2");
+            projectileTexture = this.Content.Load<Texture2D>("Textures\\Just a Projectile");
 
 
             playerSprite = new Sprite();
@@ -156,7 +156,7 @@ namespace New_Program
             camera.ViewHeight = (int)screenSize.Y;
             camera.ViewWidth = (int)screenSize.X;
             camera.UpperLeft = new Vector2((playerSprite.UpperLeft.X - playerSprite.GetWidth() / 2) - (camera.ViewWidth / 2),
-                                                            (playerSprite.UpperLeft.Y + playerSprite.GetHeight() / 2) - (camera.ViewHeight / 2));
+                                                            playerSprite.UpperLeft.Y - camera.ViewHeight);
         }
 
         /// <summary>
@@ -213,7 +213,7 @@ namespace New_Program
                     floored = true;
                 }
             }
-            
+
             walking = false;
 
             if (currentKeyState.IsKeyDown(Keys.A))
@@ -241,67 +241,19 @@ namespace New_Program
                 double direction = Sprite.CalculateDirectionAngle(new Vector2(currentMouseState.X - ((playerSprite.UpperLeft.X - camera.UpperLeft.X) + playerSprite.GetWidth() / 2),
                                                                              (currentMouseState.Y - ((playerSprite.UpperLeft.Y - camera.UpperLeft.Y) - playerSprite.GetHeight() / 2))));
 
-                int deviation = rand.Next(0, 15);
-
-                direction -= 7.5;
-                direction += deviation;
-
                 projectileSprite = new Sprite();
                 projectileSprite.SetTexture(projectileTexture);
-                projectileSprite.Scale = new Vector2(4, 4);
                 projectileSprite.RotationAngle = direction;
-                projectileSprite.SetSpeedAndDirection(8, direction);
+                projectileSprite.SetSpeedAndDirection(1, direction);
                 projectileSprite.UpperLeft = new Vector2(playerSprite.UpperLeft.X + playerSprite.GetWidth() / 2,
-                                                         playerSprite.UpperLeft.Y + playerSprite.GetHeight() / 2);
-                projectileSprite.SetCollisions();
-                activeProjectiles.AddFirst(projectileSprite);
-                activeSprites.AddFirst(projectileSprite);
-                
-                //projectileSprite = new Sprite();
-                //projectileSprite.SetTexture(projectileTexture);
-                //projectileSprite.Scale = new Vector2(4, 4);
-                //projectileSprite.RotationAngle = direction;
-                //projectileSprite.SetSpeedAndDirection(8, direction);
-                //projectileSprite.UpperLeft = new Vector2(playerSprite.UpperLeft.X + playerSprite.GetWidth() / 2,
-                //                                         playerSprite.UpperLeft.Y + playerSprite.GetHeight() / 2);
-                //activeProjectiles.AddFirst(projectileSprite);
-                //activeSprites.AddFirst(projectileSprite);
-
-                //deviation = rand.Next(0, 15);
-
-                //direction -= 7.5;
-                //direction += deviation;
-
-                projectileSprite = new Sprite();
-                projectileSprite.SetTexture(projectileTexture);
-                projectileSprite.Scale = new Vector2(4, 4);
-                projectileSprite.RotationAngle = direction;
-                projectileSprite.SetSpeedAndDirection(8, direction);
-                projectileSprite.UpperLeft = new Vector2(playerSprite.UpperLeft.X + playerSprite.GetWidth() / 2,
-                                                         playerSprite.UpperLeft.Y + playerSprite.GetHeight() / 2);
-                projectileSprite.SetCollisions();
-                activeProjectiles.AddFirst(projectileSprite);
-                activeSprites.AddFirst(projectileSprite);
-
-                deviation = rand.Next(0, 30);
-
-                direction -= 15;
-                direction += deviation;
-
-                projectileSprite = new Sprite();
-                projectileSprite.SetTexture(projectileTexture);
-                projectileSprite.Scale = new Vector2(4, 4);
-                projectileSprite.RotationAngle = direction;
-                projectileSprite.SetSpeedAndDirection(8, direction);
-                projectileSprite.UpperLeft = new Vector2(playerSprite.UpperLeft.X + playerSprite.GetWidth() / 2,
-                                                         playerSprite.UpperLeft.Y + playerSprite.GetHeight() / 2);
-                projectileSprite.SetCollisions();
+                                                                           playerSprite.UpperLeft.Y + playerSprite.GetHeight() / 2);
                 activeProjectiles.AddFirst(projectileSprite);
                 activeSprites.AddFirst(projectileSprite);
 
                 direction = Sprite.CalculateDirectionAngle(new Vector2(((playerSprite.UpperLeft.X - camera.UpperLeft.X) + playerSprite.GetWidth() / 2) - currentMouseState.X,
                                                                       (((playerSprite.UpperLeft.Y - camera.UpperLeft.Y) - playerSprite.GetHeight() / 2) - currentMouseState.Y) * -1));
 
+                //playerSprite.AccelerateX(10, direction * -1);
                 if (floored)
                 {
                     playerSprite.AccelerateX(0.01f, direction * -1);
@@ -416,41 +368,8 @@ namespace New_Program
                 }
             }
 
-            temp.Clear();
-            projectileCount = 0;
-
-            foreach (Sprite projectile in activeProjectiles)
-            {
-                projectile.tempAccelerating = false;
-
-                foreach (Sprite floor in floors)
-                {
-                    Rectangle rectangle = projectile.GetBoundingRectangle();
-
-                    if ((((rectangle.X) + (rectangle.Width / 2)) > (floor.UpperLeft.X)) &&
-                        (((rectangle.X) + (rectangle.Width / 2)) < (floor.UpperLeft.X + floor.GetWidth())) &&
-                        (((rectangle.Y) + (rectangle.Height / 2)) > (floor.UpperLeft.Y)) &&
-                        (((rectangle.Y) + (rectangle.Height / 2)) < (floor.UpperLeft.Y + floor.GetHeight())))
-                    {
-                        projectile.SetTempVelocity(projectile.GetVelocity().X, 0);
-
-                        projectile.tempAccelerating = true;
-
-                        break;
-                    }
-                }
-
-                projectile.Scale = new Vector2(projectile.Scale.X - 0.05f, projectile.Scale.Y - 0.05f);
-                projectile.AccelerateDirection(-0.1, projectile.GetDirectionAngle());
-
-                projectile.Move();
-
-                projectileCount += 1;
-
-                temp.AddFirst(projectile);
-            }
-
-            foreach (Sprite sprite in temp)
+            //playerSprite.Move();
+            foreach (Sprite sprite in activeProjectiles)
             {
                 double X = sprite.GetVelocity().X;
                 double Y = sprite.GetVelocity().Y;
@@ -463,20 +382,27 @@ namespace New_Program
                 {
                     Y *= -1;
                 }
-                if((X <= 0.1) && (Y <= 0.1))
+                //if ((sprite.GetVelocity().X <= 0.01) && (sprite.GetVelocity().Y <= 0.01))
+                if((X <= 0.01) && (Y <= 0.01))
                 {
                     sprite.SetVelocity(0, 0);
-                    sprite.Cull();
-                    activeProjectiles.Remove(sprite);
+                    sprite.IsAlive = false;
                 }
-
+                if (sprite.lifeSpan >= 60)
+                {
+                    sprite.AccelerateDirection(-0.01, sprite.GetDirectionAngle());
+                }
             }
 
 
-            playerSprite.Move();
-
+            foreach (Sprite sprite in activeSprites)
+            {
+                sprite.Move();
+                sprite.lifeSpan += 1;
+            }
             camera.UpperLeft = new Vector2((playerSprite.UpperLeft.X - playerSprite.GetWidth() / 2) - (camera.ViewWidth / 2),
                                                             (playerSprite.UpperLeft.Y + playerSprite.GetHeight()) - ((camera.ViewHeight / 4) * 3));
+            //camera.LockCamera();
 
             oldKeyState = currentKeyState;
             oldMouseState = currentMouseState;
@@ -502,8 +428,6 @@ namespace New_Program
 
             spriteBatch.DrawString(Calibri, "Mana: ", new Vector2(10, 10), Color.Black);
             spriteBatch.DrawString(Calibri, mana.ToString(), new Vector2(60, 10), Color.Black);
-
-            spriteBatch.DrawString(Calibri, projectileCount.ToString(), new Vector2(200, 10), Color.Black);
 
             spriteBatch.End();
 

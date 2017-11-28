@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a Box.xnb</Output>
+      <Output>D:\Users\nye\Documents\GitHub\JetpackGame-C#-\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a Box.xnb</Output>
       <Time>2016-04-20T02:04:08+01:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a Floor.xnb</Output>
+      <Output>D:\Users\nye\Documents\GitHub\JetpackGame-C#-\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a Floor.xnb</Output>
       <Time>2016-04-20T02:11:26+01:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a Small Floor.xnb</Output>
+      <Output>D:\Users\nye\Documents\GitHub\JetpackGame-C#-\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a Small Floor.xnb</Output>
       <Time>2016-04-24T03:53:52+01:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Floor1.xnb</Output>
+      <Output>D:\Users\nye\Documents\GitHub\JetpackGame-C#-\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Floor1.xnb</Output>
       <Time>2016-04-24T03:53:58+01:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Floor2.xnb</Output>
+      <Output>D:\Users\nye\Documents\GitHub\JetpackGame-C#-\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Floor2.xnb</Output>
       <Time>2016-04-24T03:53:58+01:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a WOMD.xnb</Output>
+      <Output>D:\Users\nye\Documents\GitHub\JetpackGame-C#-\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a WOMD.xnb</Output>
       <Time>2016-04-24T04:26:28+01:00</Time>
     </Item>
     <Item>
@@ -61,17 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a Projectile.xnb</Output>
-      <Time>2016-05-25T16:12:56+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Flamey Thingy.png</Source>
-      <Name>Textures\Flamey Thingy</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Flamey Thingy.xnb</Output>
-      <Time>2016-06-22T14:43:38+01:00</Time>
+      <Output>D:\Users\nye\Documents\GitHub\JetpackGame-C#-\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Textures\Just a Projectile.xnb</Output>
+      <Time>2016-05-25T16:12:56.1413086+01:00</Time>
     </Item>
     <Item>
       <Source>Fonts\Calibri.spritefont</Source>
@@ -79,7 +70,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Fonts\Calibri.xnb</Output>
+      <Output>D:\Users\nye\Documents\GitHub\JetpackGame-C#-\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\Fonts\Calibri.xnb</Output>
       <Time>2016-05-24T17:51:15+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -89,10 +80,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack GameContent\</RootDirectory>
-      <LoggerRootDirectory>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\</LoggerRootDirectory>
-      <IntermediateDirectory>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>D:\Users\nye\Documents\GitHub\JetpackGame-C#-\Jetpack Game\Jetpack GameContent\</RootDirectory>
+      <LoggerRootDirectory>D:\Users\nye\Documents\GitHub\JetpackGame-C#-\Jetpack Game\Jetpack Game\</LoggerRootDirectory>
+      <IntermediateDirectory>D:\Users\nye\Documents\GitHub\JetpackGame-C#-\Jetpack Game\Jetpack Game\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>D:\Users\nye\Documents\GitHub\JetpackGame-C#-\Jetpack Game\Jetpack Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

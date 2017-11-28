@@ -12,19 +12,17 @@ C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program
 C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a WOMD.xnb
 C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Fonts\Calibri.xnb
 C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Projectile.xnb
-C:\Users\Nye\Dropbox\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Flamey Thingy.xnb
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Box.xnb
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Floor.xnb
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Small Floor.xnb
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Floor1.xnb
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Floor2.xnb
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a WOMD.xnb
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Projectile.xnb
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Flamey Thingy.xnb
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Fonts\Calibri.xnb
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\New Program.exe
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\New Program.pdb
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\obj\x86\Debug\New Program.csprojResolveAssemblyReference.cache
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\obj\x86\Debug\New Program.exe
-D:\Users\nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\obj\x86\Debug\New Program.pdb
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Box.xnb
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Floor.xnb
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Small Floor.xnb
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Floor1.xnb
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Floor2.xnb
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a WOMD.xnb
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Textures\Just a Projectile.xnb
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\Content\Fonts\Calibri.xnb
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\New Program.exe
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\bin\x86\Debug\New Program.pdb
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\obj\x86\Debug\New Program.csprojResolveAssemblyReference.cache
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\obj\x86\Debug\New Program.exe
+E:\Users\Nye\Documents\Programming\C#\Programs\New Program\New Program\New Program\New Program\obj\x86\Debug\New Program.pdb
